@@ -2,7 +2,7 @@
 
 A clean, dark-themed personal portfolio for GitHub Pages. No frameworks, no build tools - just HTML, CSS, and a little JavaScript.
 
-**[Live demo](https://dahimbis.github.io/)**
+**[Live demo](https://dahimbis.github.io/heartfolio-website-template/)**
 
 ---
 
