@@ -1,15 +1,25 @@
-# Portfolio Template
+# Heartfolio - Portfolio Website Template
 
-A clean, dark-themed personal portfolio for GitHub Pages. No frameworks, no build tools — just HTML, CSS, and a little JavaScript.
+A clean, dark-themed personal portfolio for GitHub Pages. No frameworks, no build tools - just HTML, CSS, and a little JavaScript.
 
-**[Live demo →](https://YOUR-USERNAME.github.io)**
+**[Live demo](https://dahimbis.github.io/)** - **[Author](https://github.com/dahimbis)**
+
+> Made by [Dan Ahimbisibwe](https://dahimbis.github.io/) - feel free to use and customise it.
+
+---
+
+## Preview
+
+![Homepage](about.png)
+![Tech Stack](tech.png)
+![Projects](projects.png)
 
 ---
 
 ## What is included
 
 ```
-portfolio-template/
+heartfolio/
 ├── index.html          # Homepage (hero, skills, experience, projects, contact)
 ├── projects/
 │   └── index.html      # Full projects page with search and filter
@@ -27,12 +37,12 @@ portfolio-template/
 
 ### 1. Copy the template
 
-**Option A — Use this as a GitHub template:**
+**Option A - Use this as a GitHub template:**
 Click "Use this template" at the top of this repo, name it `YOUR-USERNAME.github.io`, and clone it.
 
-**Option B — Clone manually:**
+**Option B - Clone manually:**
 ```bash
-git clone https://github.com/TEMPLATE-OWNER/portfolio-template.git YOUR-USERNAME.github.io
+git clone https://github.com/dahimbis/heartfolio-website-template.git YOUR-USERNAME.github.io
 cd YOUR-USERNAME.github.io
 git remote set-url origin https://github.com/YOUR-USERNAME/YOUR-USERNAME.github.io.git
 ```
@@ -40,8 +50,8 @@ git remote set-url origin https://github.com/YOUR-USERNAME/YOUR-USERNAME.github.
 ### 2. Enable GitHub Pages
 
 1. Push the repo to GitHub (repo name must be `YOUR-USERNAME.github.io`).
-2. Go to **Settings → Pages**.
-3. Under Source, select **Deploy from a branch** → **main** → **/ (root)**.
+2. Go to **Settings - Pages**.
+3. Under Source, select **Deploy from a branch** - **main** - **/ (root)**.
 4. Your site will be live at `https://YOUR-USERNAME.github.io` within a minute.
 
 ---
@@ -80,7 +90,7 @@ https://img.shields.io/badge/LABEL-COLOR?style=flat-square&logo=LOGO&logoColor=w
 ```
 Find logo names at [simpleicons.org](https://simpleicons.org).
 
-Example — a Python badge:
+Example - a Python badge:
 ```html
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
 ```
@@ -93,8 +103,8 @@ Edit the `.projects-grid` in `index.html`. Each project is a `.project-card`.
 
 ### Projects page (`projects/index.html`)
 Each card needs two data attributes:
-- `data-name` — lowercase keywords for the search box
-- `data-category` — must match one of the filter button `data-filter` values
+- `data-name` - lowercase keywords for the search box
+- `data-category` - must match one of the filter button `data-filter` values
 
 To add a new filter category, add a button:
 ```html
@@ -103,11 +113,11 @@ To add a new filter category, add a button:
 Then use `data-category="my-category"` on the relevant cards.
 
 ### Contact form
-The form uses [FormSubmit](https://formsubmit.co) — free, no account required, no backend.
+The form uses [FormSubmit](https://formsubmit.co) - free, no account required, no backend.
 
 1. Replace `YOUR-EMAIL@example.com` in the form action with your real email.
 2. Replace `YOUR-USERNAME` in the `_next` hidden field with your GitHub username.
-3. Submit the form once — FormSubmit will send you a one-time activation email.
+3. Submit the form once - FormSubmit will send you a one-time activation email.
 
 After activation, all form submissions go straight to your inbox.
 
@@ -121,18 +131,18 @@ All colours are CSS variables in `:root` at the top of each HTML file:
 :root {
   --bg:      #08080f;   /* page background */
   --surface: #0d0d1a;   /* card background */
-  --accent:  #6366f1;   /* indigo — primary accent */
-  --cyan:    #22d3ee;   /* cyan — secondary accent */
+  --accent:  #6366f1;   /* indigo - primary accent */
+  --cyan:    #22d3ee;   /* cyan - secondary accent */
   --text:    #e2e8f0;
   --muted:   #8892b0;
 }
 ```
 
-Change these four values to completely retheme the site.
+Change these values to completely retheme the site.
 
 Fonts are loaded from Google Fonts:
-- **Inter** — body text
-- **JetBrains Mono** — labels and code elements
+- **Inter** - body text
+- **JetBrains Mono** - labels and code elements
 
 ---
 
@@ -142,10 +152,10 @@ Put your favicon files in the `meta/` folder. You can generate them for free at 
 
 Files needed:
 - `meta/favicon-32x32.png`
-- `meta/apple-touch-icon.png` (180×180)
+- `meta/apple-touch-icon.png` (180x180)
 - `meta/android-chrome-192x192.png`
 - `meta/android-chrome-512x512.png`
-- `meta/social-preview.png` (1200×630, used for link previews on social media)
+- `meta/social-preview.png` (1200x630, used for link previews on social media)
 
 ---
 
@@ -169,7 +179,7 @@ These files help search engines index your site correctly.
 To add a new page (e.g. a blog or an about page):
 
 1. Create a new folder: `about/`
-2. Add `about/index.html` — copy the structure from `projects/index.html` as a starting point.
+2. Add `about/index.html` - copy the structure from `projects/index.html` as a starting point.
 3. Add it to the nav in every page.
 4. Add it to `sitemap.xml`.
 
@@ -179,4 +189,4 @@ To add a new page (e.g. a blog or an about page):
 
 This template is free to use and modify. Attribution is appreciated but not required.
 
-If you build something with it, consider starring the repo!
+If you find it useful, consider starring the repo!
