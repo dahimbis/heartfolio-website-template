@@ -2,9 +2,7 @@
 
 A clean, dark-themed personal portfolio for GitHub Pages. No frameworks, no build tools - just HTML, CSS, and a little JavaScript.
 
-**[Live demo](https://dahimbis.github.io/)** - **[Author](https://github.com/dahimbis)**
-
-> Made by [Dan Ahimbisibwe](https://dahimbis.github.io/) - feel free to use and customise it.
+**[Live demo](https://dahimbis.github.io/)**
 
 ---
 
@@ -15,6 +13,7 @@ A clean, dark-themed personal portfolio for GitHub Pages. No frameworks, no buil
 ![Projects](projects.png)
 
 ---
+
 
 ## What is included
 
@@ -182,6 +181,15 @@ To add a new page (e.g. a blog or an about page):
 2. Add `about/index.html` - copy the structure from `projects/index.html` as a starting point.
 3. Add it to the nav in every page.
 4. Add it to `sitemap.xml`.
+
+---
+
+## Author
+
+Dan Ahimbisibwe
+
+GitHub: [@dahimbis](https://github.com/dahimbis)
+Website: [dahimbis.github.io](https://dahimbis.github.io)
 
 ---
 
