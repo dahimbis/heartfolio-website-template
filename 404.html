@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | YOUR NAME</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:     #08080f;
+      --accent: #6366f1;
+      --cyan:   #22d3ee;
+      --text:   #e2e8f0;
+      --muted:  #8892b0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 32px;
+      overflow: hidden;
+    }
+    .glow {
+      position: absolute; width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(5rem, 20vw, 9rem);
+      font-weight: 800; letter-spacing: -4px; line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 16px;
+    }
+    .title { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .subtitle {
+      color: var(--muted); font-size: 1rem;
+      max-width: 380px; line-height: 1.7; margin-bottom: 36px;
+    }
+    .links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #4f52d9; transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent; color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--cyan); margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <p class="mono">// error 404</p>
+  <div class="code">404</div>
+  <h1 class="title">Page not found</h1>
+  <p class="subtitle">
+    The page you are looking for does not exist or has been moved.
+    Let us get you back on track.
+  </p>
+  <div class="links">
+    <a href="/" class="btn btn-primary">Go Home</a>
+    <a href="/projects/" class="btn btn-ghost">Projects</a>
+  </div>
+</body>
+</html>

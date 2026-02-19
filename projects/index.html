@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — YOUR NAME</title>
+  <meta name="description" content="All projects by YOUR NAME." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects — YOUR NAME" />
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/projects/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png" />
+  <link rel="manifest" href="/meta/site.webmanifest" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:      #08080f;
+      --surface: #0d0d1a;
+      --border:  rgba(255, 255, 255, 0.07);
+      --accent:  #6366f1;
+      --cyan:    #22d3ee;
+      --text:    #e2e8f0;
+      --muted:   #8892b0;
+      --radius:  12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- NAV ---- */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(8, 8, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem; font-weight: 500; color: var(--accent);
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 0.875rem; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    /* ---- MAIN ---- */
+    main { flex: 1; max-width: 1000px; margin: 0 auto; width: 100%; padding: 60px 40px; }
+
+    .page-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+    }
+    .page-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800; letter-spacing: -1px; margin-bottom: 12px;
+    }
+    .page-sub { color: var(--muted); margin-bottom: 40px; max-width: 500px; }
+
+    /* ---- SEARCH & FILTER ---- */
+    .controls {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 32px; align-items: center;
+    }
+    .search-input {
+      flex: 1; min-width: 200px; padding: 10px 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--muted); }
+
+    .filter-btn {
+      padding: 9px 18px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--muted);
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ---- GRID ---- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-3px); }
+    .project-card[hidden] { display: none; }
+
+    .project-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; padding: 3px 10px;
+      border-radius: 20px; margin-bottom: 14px;
+      background: rgba(99,102,241,0.12);
+      color: var(--accent); border: 1px solid rgba(99,102,241,0.2);
+    }
+    .project-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .project-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+    .project-link {
+      font-size: 0.8rem; font-weight: 600; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .project-link:hover { color: var(--cyan); }
+
+    .no-results {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted); font-size: 0.9rem;
+      display: none; grid-column: 1/-1;
+      padding: 40px 0; text-align: center;
+    }
+    .no-results.visible { display: block; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center; padding: 28px 40px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--muted);
+    }
+
+    /* ---- BACK TO TOP ---- */
+    #back-to-top {
+      position: fixed; bottom: 28px; right: 24px;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer; border: none;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s; z-index: 200;
+    }
+    #back-to-top.visible { opacity: 1; pointer-events: auto; }
+    #back-to-top:hover { transform: translateY(-3px); }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      main { padding: 40px 20px; }
+      footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">yourname.dev</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/projects/" class="active">Projects</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <p class="page-label">// work</p>
+    <h1 class="page-title">All Projects</h1>
+    <p class="page-sub">A collection of things I have built. Use the filters below to browse by category.</p>
+
+    <!-- ============================================================
+         CONTROLS
+         Add a filter-btn for each category you use in data-category.
+         ============================================================ -->
+    <div class="controls">
+      <input class="search-input" type="search" id="search" placeholder="Search projects..." />
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ml">ML / AI</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+
+    <!-- ============================================================
+         PROJECTS
+         Each card needs:
+           data-name  — used for search (lowercase is fine)
+           data-category — must match a filter-btn's data-filter value
+         ============================================================ -->
+    <div class="projects-grid" id="grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card" data-name="project one ml model" data-category="ml">
+        <span class="project-tag">ML / AI</span>
+        <h3>Project Name 1</h3>
+        <p>
+          Description of the project. What does it do, what technologies does it use,
+          what problem does it solve?
+        </p>
+        <a href="https://github.com/YOUR-USERNAME/repo-name" target="_blank" class="project-link">
+          View on GitHub →
+        </a>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card" data-name="project two web app" data-category="web">
+        <span class="project-tag">Web</span>
+        <h3>Project Name 2</h3>
+        <p>
+          Description of the project. What does it do, what technologies does it use?
+        </p>
+        <a href="https://github.com/YOUR-USERNAME/repo-name-2" target="_blank" class="project-link">
+          View on GitHub →
+        </a>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card" data-name="project three tool" data-category="other">
+        <span class="project-tag">Other</span>
+        <h3>Project Name 3</h3>
+        <p>
+          Description of the project.
+        </p>
+        <a href="https://github.com/YOUR-USERNAME/repo-name-3" target="_blank" class="project-link">
+          View on GitHub →
+        </a>
+      </div>
+
+      <!-- Add more cards by copying any project-card block above.
+           Make sure to update data-name and data-category. -->
+
+      <p class="no-results" id="noResults">// no projects match your search</p>
+    </div>
+  </main>
+
+  <footer>
+    <p><a href="/" style="color:var(--accent);">← Back to home</a></p>
+  </footer>
+
+  <button id="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
+
+  <script>
+    // ---- Search + filter ----
+    const searchInput = document.getElementById('search');
+    const filterBtns  = document.querySelectorAll('.filter-btn');
+    const cards       = document.querySelectorAll('.project-card');
+    const noResults   = document.getElementById('noResults');
+    let activeFilter  = 'all';
+
+    function applyFilters() {
+      const query = searchInput.value.toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
+        const matchesSearch = card.dataset.name.includes(query) ||
+                              card.querySelector('h3').textContent.toLowerCase().includes(query) ||
+                              card.querySelector('p').textContent.toLowerCase().includes(query);
+        const show = matchesFilter && matchesSearch;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      noResults.classList.toggle('visible', visible === 0);
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // ---- Back to top ----
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('visible', window.scrollY > 300);
+    });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+</body>
+</html>
